@@ -1,0 +1,19 @@
+@import "vars";
+@import "bootstrap-5.3.2/scss/bootstrap.scss";
+
+/* Custom Styles */
+
+
+$backgroundColor: #ffffff;
+$bodyColor: #000000;
+$bodyFont: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+$headerFontColor: #ffffff;
+$headerBackgroundColor: #5a1b01;
+$navBackgroundColor: #756243;
+
+body {
+  background: $backgroundColor;
+  color: $bodyColor;
+  font-family: $bodyFont;
+}
+
