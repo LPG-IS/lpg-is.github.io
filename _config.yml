@@ -20,11 +20,6 @@ autoprefixer:
 exclude:
   - Gemfile
   - Gemfile.lock
-  - node_modules
-  - vendor/bundle/
-  - vendor/cache/
-  - vendor/gems/
-  - vendor/ruby/
   - LICENSE.md
   - LICENSE
   - README.md
