@@ -10,8 +10,21 @@ sass:
         - _sass
 plugins:
   - jekyll-autoprefixer # gem install jekyll-autoprefixer ... required to install this jem beforehand
+  - jekyll-environment-variables
 
 autoprefixer:
   browsers:
     - last 4 versions
 #    - Safari > 2
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - LICENSE.md
+  - LICENSE
+  - README.md
