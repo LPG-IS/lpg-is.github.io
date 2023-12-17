@@ -17,3 +17,12 @@ body {
   font-family: $bodyFont;
 }
 
+#resourcesHeader {
+  background-color: $headerBackgroundColor;
+  $primary: $headerFontColor;
+}
+
+#resourcesHeader nav {
+  $primary: $headerFontColor;
+}
+
