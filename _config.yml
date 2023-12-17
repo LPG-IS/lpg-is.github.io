@@ -20,6 +20,3 @@ autoprefixer:
 exclude:
   - Gemfile
   - Gemfile.lock
-  - LICENSE.md
-  - LICENSE
-  - README.md
