@@ -14,6 +14,7 @@ body {
 .nav-link-dark {
   @extend .nav-link;
   color: $nav-link-dark-color;
+  font-size: medium;
   font-weight: null;
   &:hover {
     color: $nav-link-hover-dark-color;
