@@ -4,12 +4,6 @@
 /* Custom Styles */
 
 
-$backgroundColor: #ffffff;
-$bodyColor: #000000;
-$bodyFont: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-$headerFontColor: #ffffff;
-$headerBackgroundColor: #5a1b01;
-$navBackgroundColor: #756243;
 
 body {
   background: $backgroundColor;
@@ -17,12 +11,15 @@ body {
   font-family: $bodyFont;
 }
 
-#resourcesHeader {
-  background-color: $headerBackgroundColor;
-  $primary: $headerFontColor;
+.nav-link-dark {
+  @extend .nav-link;
+  color: $nav-link-dark-color;
+  font-size: medium;
+  font-weight: null;
+  &:hover {
+    color: $nav-link-hover-dark-color;
+    font-weight: $nav-link-hover-dark-weight;
+  }
 }
 
-#resourcesHeader nav {
-  $primary: $headerFontColor;
-}
 
