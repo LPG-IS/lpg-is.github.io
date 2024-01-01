@@ -2,6 +2,8 @@
 layout: default
 title: Pharmaceutical
 permalink: /pharmaceutical/
+image: /assets/images/29d3bb8a-087d-47b3-806a-fd1d1d3996dc.jpeg
+imagePosition: side
 ---
 
 # Competitive Wholesale Pharmaceutical Sales
