@@ -9,3 +9,5 @@ title: Contsct Us
 ### Hamilton, ONT
 
 {% include businesshours.html %}
+
+{% include contactform.html %}
