@@ -18,7 +18,8 @@ Expand your pharmacy's capabilities with specialized products from abroad.LPG pr
 
 </div>
 <div class="col-md-4">
-   
+
+<h2>Business Hours</h2>
 {% include businesshours.html %}
 
 </div>

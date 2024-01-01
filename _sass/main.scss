@@ -20,6 +20,22 @@ body {
     color: $nav-link-hover-dark-color;
     font-weight: $nav-link-hover-dark-weight;
   }
+  &:focus {
+    color: $nav-link-hover-dark-color;
+  }
+}
+
+.navbar-text {
+  color: $secondary;
+  font-weight: 600;
+}
+
+.text-body-secondary {
+  color: $secondary;
 }
 
 
+.form-control:focus {
+  border-color: $secondary;
+  box-shadow: 0 0 0 0.2rem rgba(118, 98, 72, 0.25);
+} 
