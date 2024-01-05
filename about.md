@@ -2,6 +2,8 @@
 layout: default
 title: About Us
 permalink: /about/
+image: /assets/images/29d3bb8a-087d-47b3-806a-fd1d1d3996dc.jpeg
+imagePosition: side
 ---
 
 LPG Inventory Solutions is a privately owned Canadian company. We are a full service Pharmaceutical Wholesaler.
