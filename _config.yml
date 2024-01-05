@@ -1,9 +1,9 @@
 title: LPG Inventory Solutions
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Providing inventory services for more than 35 years, LPG Inventory Solutions in Hamilton, Ontario, continues to benefit independent retail pharmacies with third-party logistics, supplies, and kitting services. 
-  Our mass-purchasing power allows us to offer you pharmaceuticals at wholesale prices. 
-  Obtain supplies quickly with phone or online ordering and receive same-day or overnight delivery service.
+  Providing wholesale services for 24 years.
+  LPG Inventory Solutions in Hamilton, Ontario, continues to benefit independent retail pharmacies. 
+  Obtain products quickly online to receive the same day or by overnight delivery service.
 baseurl: "" # the subpath of your site, e.g. /blog
 sass:
     load_paths: 
