@@ -1,24 +1,92 @@
 
 <div class="col-md-7">
   <h3>Send us a message</h3>
-  <form>
+
+  <div id="thankYouMessage" style="display: none;">
+    <p>Thank you for your message. We will respond soon!</p>
+  </div>
+
+  <form method="post" action="https://lpgis.com/mailapp/api/contact" id="contactForm" enctype="application/x-www-form-urlencoded">
     <div class="mb-3">
-        <label for="inputName" class="form-label">Name</label>
-        <input type="text" class="form-control" id="inputName">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" name="name">
     </div>
     <div class="mb-3">
-      <label for="inputEmail" class="form-label">Email</label>
-      <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
       <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
     </div>
     <div class="mb-3">
-      <label for="inputPhoneNumber" class="form-label">Phone</label>
-      <input type="number" class="form-control" id="inputPhoneNumber">
+      <label for="phone" class="form-label">Phone</label>
+      <input type="number" class="form-control" id="phone" name="phone">
     </div>
     <div class="mb-3">
-        <label for="inputMessage" class="form-label">Message</label>
-        <textarea rows="4" class="form-control" id="inputMessage"> </textarea>
+        <label for="message" class="form-label">Message</label>
+        <textarea rows="4" class="form-control" id="message" name="message"> </textarea>
     </div>
-    <button type="submit" class="btn btn-primary">Send Message</button>
+
+    <div class="form-group">
+      <div class="g-recaptcha" data-sitekey="6LfkHU8pAAAAANedSezlhrPxPgAOVlFDrfrMeEjd" data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div>
+      <input class="form-control d-none" data-recaptcha="true" data-error="Please complete the Captcha">
+      <div class="help-block with-errors"></div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" onclick="submitForm()">Send Message</button>
   </form>
 </div>
+
+<script>
+
+document.getElementById('contactForm').addEventListener('submit', async function (event) {
+    event.preventDefault(); // Prevent the default form submission behavior
+    await submitForm(); 
+  });  
+
+async function submitForm() {
+
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const phone = document.getElementById('phone').value;
+  const message = document.getElementById('message').value;
+  const recaptchaResponse = grecaptcha.getResponse();
+
+  // Prepare the form data
+  const formData = new FormData();
+  formData.append('name', name);
+  formData.append('email', email);
+  formData.append('phone', phone);
+  formData.append('message', message);
+  formData.append('recaptcha_response', recaptchaResponse);
+
+  // Send a POST request to your server
+  fetch('https://lpgis.com/mailapp/api/contact', {
+    method: 'POST',
+    body: formData,
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log('Server response:', data);
+    // Optionally, you can handle the server response here
+  })
+  .catch(error => {
+    console.error('Error sending form data:', error);
+    // Optionally, you can handle the error here
+  });
+    document.getElementById('thankYouMessage').style.display = 'block';
+    document.getElementById('contactForm').style.display = 'none';
+  }
+  
+  function verifyRecaptchaCallback(response) {
+    console.log('reCAPTCHA verified:', response);
+    // Set the 'required' attribute for the reCAPTCHA input based on verification status
+    const recaptchaInput = document.querySelector('[data-recaptcha="true"]');
+    recaptchaInput.required = false; // Set to 'false' because reCAPTCHA is already verified   
+  }
+
+  function expiredRecaptchaCallback() {
+    console.log('reCAPTCHA expired');
+
+    // Optionally, you can reset the reCAPTCHA widget or perform other actions
+    recaptcha.reset();
+  }
+</script>
