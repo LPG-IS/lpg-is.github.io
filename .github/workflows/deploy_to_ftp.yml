@@ -32,4 +32,4 @@ jobs:
         ftp_password: ${{ secrets.FTP_PASSWORD }}
         ftp_folder: ${{ secrets.FTP_FOLDER }}
       run: |
-        ncftpput -R -v -u "$ftp_username" -p "$ftp_password" $ftp_location $ftp_folder _site/* 
+        ncftpput -R -v -u " ${{ secrets.FTP_USERNAME }}" -p " ${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_LOCATION }} ${{ secrets.FTP_FOLDER }} _site/* 
