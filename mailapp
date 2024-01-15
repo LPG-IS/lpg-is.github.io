@@ -46,17 +46,21 @@ app.post(
     body('phone').not().isEmpty().trim().escape(),
     body('name').not().isEmpty().trim().escape(),
     body('message').not().isEmpty().trim().escape(),
-    body('g-recaptcha-response').not().isEmpty().trim().escape(),
+    body('recaptcha_response').not().isEmpty().trim().escape(),
   ],
   async (req, res, next) => {
-    console.log('Received form data:', req.body);
+    if (process.env.DEBUG === 'true') {
+        // Log a debug statement if DEBUG is true
+        console.log('Received form data:', req.body);
+      }
+   
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(422).json({ errors: errors.array() });
     }
     const { name, email, phone, message } = req.body;
     const secretKey = process.env.CAPTCHA_SECRET_KEY;
-    const url = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${req.body.g-recaptcha-response}`;
+    const url = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${req.body.recaptcha_response}`;
     axios.post(url).then((data) => {
       console.log(data.data);
       if (!data.data.success) {
@@ -67,20 +71,21 @@ app.post(
         });
       }
       const output = `
-<p>You have a new message</p>
+<p>You have a new message sent via. the website contact form</p>
 <h3>Contact Details</h3>
 <ul>  
   <li>Name: ${name}</li>
   <li>Email: ${email}</li>
   <li>Phone: ${phone}</li>
 </ul>
-<p><strong>Message: </strong> ${message}</p>
-<strong>Please don't reply to this message</strong>
+<h3>Message</h3> 
+<p>${message}</p>
+<strong>Please don't reply directly to this email address</strong>
 `;
       let mailOptions = {
         from: `"Website Contact Form" <${process.env.FROMEMAIL}>`,
         to: process.env.TOEMAIL,
-        subject: `Contact Form Enquiry - ${name}`,
+        subject: `Web Contact Form Enquiry - ${name}`,
         html: output,
       };
       let transporter = nodemailer.createTransport({
@@ -121,8 +126,7 @@ app.post(
             res.status(200).json({
               status: 200,
               msg: 'Your message was successfully submitted, We will contact you soon..',
-              fail: false,
-              info: data,
+              fail: false
             });
             next();
           }
@@ -149,7 +153,7 @@ app.post(
 
 app.use((error, request, response, next) => {
   response.status(error.status || 500);
-  response.json({ error: error.message });
+  response.json({ error: "Internal Error" });
   next();
 });
 
