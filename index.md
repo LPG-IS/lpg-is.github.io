@@ -5,7 +5,7 @@ title: "Medical Supplies | Hamilton, ON"
 
 
 <div class="row">
-<div class="col-md-5">
+<div class="col-md-4">
 
 <img class="img-fluid " src="/assets/images/213d1f1d-ea1c-46ff-8c6b-d65db829a91a.jpeg" alt="Team of pharmacists"/>
 
