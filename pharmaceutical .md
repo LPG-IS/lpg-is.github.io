@@ -15,4 +15,7 @@ At our company, we know you need your prescriptions fast. We fill online orders 
 ### Setup Process
 Get started by filling out a credit application. Once approved, you'll receive an email to set up your online ordering
 
+
+<div class="col-md-7">
 {% include contactform.html %}
+</div>
