@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Contact Us
+permalink: /contact/
 ---
 
 <div class="row mb-4 pb-4">
