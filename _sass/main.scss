@@ -30,6 +30,12 @@ body {
   font-weight: 600;
 }
 
+.navbar-toggler {
+  background-color: $nav-link-dark-color;
+  color: $secondary;
+  border-color: $secondary;
+}
+
 .text-body-secondary {
   color: $secondary;
 }
